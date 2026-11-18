@@ -59,6 +59,7 @@ node dist/index.js audit report.pdf
 
 - [`docs/design.md`](docs/design.md) —— 思路与走过的路：为什么"矢量还原"失败，"从 SVG 发射"为什么对
 - [`docs/pdf-pattern-notes.md`](docs/pdf-pattern-notes.md) —— PDF tiling pattern 的正确配方（含三个真 bug）
+- [`docs/getting-the-rect.md`](docs/getting-the-rect.md) —— `--rect` 怎么量：Puppeteer 程序化 / 从 PDF 反查
 - [`docs/upstream-options.md`](docs/upstream-options.md) —— 能不能在 `page.pdf()` 之前就避免光栅化
 - [`docs/roadmap.md`](docs/roadmap.md) —— 下一步可做的方向
 
