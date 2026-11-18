@@ -1,0 +1,25 @@
+{
+  "name": "montage-svg-print-fix",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Replace the rasterised drawing column of a design report with vector content taken from the source SVG",
+  "bin": {
+    "montage-svg-print-fix": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "help": "node dist/index.js help"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

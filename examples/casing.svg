@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="200" viewBox="0 0 120 200">
+  <!-- Synthetic sample: the same construct as a real report drawing, small enough to read.
+       Two casing walls (hatched) and one formation band (dots). -->
+  <defs>
+    <!-- hatch cell: three 30-degree lines, 5 units apart perpendicular -->
+    <pattern id="hatch" patternUnits="userSpaceOnUse" x="0" y="0" width="10" height="5.8">
+      <line x1="-4.29" y1="-11.008" x2="21.69" y2="3.992" stroke-width="1" stroke="#000000"/>
+      <line x1="-6.79" y1="-6.678" x2="19.19" y2="8.322" stroke-width="1" stroke="#000000"/>
+      <line x1="-9.29" y1="-2.348" x2="16.69" y2="12.652" stroke-width="1" stroke="#000000"/>
+    </pattern>
+
+    <!-- texture cell: a few pebbles, 38 x 23 -->
+    <pattern id="formation" patternUnits="userSpaceOnUse" x="0" y="0" width="38" height="23" fill="#d1d1d1">
+      <path d="M6 4c2-1 3 1 5 0s3 2 1 3-4 1-5 0-2-2-1-3z"/>
+      <path d="M24 8c2 0 4 1 5 3s-1 3-3 3-4-1-4-3 1-3 2-3z"/>
+      <path d="M14 16c2-1 4 0 5 2s-1 3-3 3-4-1-4-3 1-2 2-2z"/>
+      <path d="M33 18c1-1 3 0 3 1s-1 2-2 2-2-1-2-2 1-1 1-1z"/>
+      <path d="M2 14c1 0 2 1 2 2s-1 2-2 2-2-1-2-2 1-2 2-2z"/>
+    </pattern>
+  </defs>
+
+  <!-- formation band behind the casing -->
+  <path fill="url(#formation)" d="M0 60 H120 V200 H0 Z"/>
+
+  <!-- left wall: a 12-unit wide band, hatched -->
+  <path fill="url(#hatch)" stroke="#000000" stroke-width="0.8"
+        d="M20 10 L32 10 L32 190 L20 190 Z"/>
+  <!-- right wall -->
+  <path fill="url(#hatch)" stroke="#000000" stroke-width="0.8"
+        d="M88 10 L100 10 L100 190 L88 190 Z"/>
+
+  <!-- wellhead-ish detail, plain vector -->
+  <path fill="#ffffff" stroke="#000000" stroke-width="0.8"
+        d="M20 10 L32 4 L88 4 L100 10 L88 16 L32 16 Z"/>
+
+  <!-- labels -->
+  <g transform="translate(4,30)">
+    <text x="0" y="0" font-size="7" fill="#000000">
+      <tspan x="0" y="0" dy="8">FORMATION A</tspan>
+    </text>
+  </g>
+  <g transform="translate(4,120)">
+    <text x="0" y="0" font-size="7" fill="#000000">
+      <tspan x="0" y="0" dy="8">FORMATION B</tspan>
+    </text>
+  </g>
+</svg>

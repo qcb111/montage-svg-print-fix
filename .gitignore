@@ -1,0 +1,16 @@
+# dependencies / build output
+node_modules/
+dist/
+
+# local artefacts
+*.pdf
+!examples/*.pdf
+*.png
+*.svg
+!examples/*.svg
+
+# editor / os
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
