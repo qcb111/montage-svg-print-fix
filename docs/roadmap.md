@@ -61,10 +61,13 @@ for each (svg, rect) in plan:  emitSvg(...)
 
 ## 7. 上游修复（最彻底）
 
-如果生成端可改，最好的方案是**不让浏览器栅格化**：
+详见 [`upstream-options.md`](upstream-options.md)。要点：
 
-- 让那个元素走矢量导出（`svg2pdf` / librsvg 之类，把 pattern 映射成 PDF tiling pattern）；
-- 或者干脆不画真图，只画一个占位矩形 + `/PieceInfo`（记录 svg 文件名与目标框），
-  由后处理"对号入座"。
+- **根因在 Skia 的 PDF 后端**：图案着色器只会被光栅化成 `Image XObject`，
+  CSS/SVG 层面没有开关能改变它。所以"上游修复"= **不让 DOM 里再出现图案填充**。
+- 斜线 hatch → `clipPath` + 显式 `<line>`（全矢量，约 2000 条线，DOM 压力可忽略）。
+- 点状纹理 → 小图 + `background-repeat`（体积小，但仍位图；**Chrome 打印行为未验证**，
+  需要一个最小页面实测），或展开成显式点（矢量但 3–5 MB）。
+- 生成端把绘图框写进 sidecar JSON，`page.pdf()` 之后立即调 `apply`：
+  坐标由生成端给出，不是从 PDF 里推断——这是"契约"而非"考古"。
 
-前者让 PDF 一开始就是矢量的；后者把"推断"变成"契约"。两者都比事后修复便宜。
